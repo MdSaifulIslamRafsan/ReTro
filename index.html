@@ -13,6 +13,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <!-- link font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script>
         tailwind.config = {
           theme: {
@@ -91,10 +93,10 @@
                 <div class="card-body grid gap-5 grid-cols-1 lg:grid-cols-2">
                     <div class="flex flex-col justify-center items-center space-y-4">
                         <h1 class="text-white text-3xl lg:text-5xl font-mulish font-black">Welcome to the <br> <span style="background: linear-gradient(90deg, #797DFC 0.63%, rgba(121, 125, 252, 0.363) 41%); background-clip: text; color: transparent;"> ReTro </span>Forum</h1>
-                        <p class="text-white">Share your favorite opinion and win and wp forum coffee mug!</p>
+                        <p class="text-white font-mulish">Share your favorite opinion and win and wp forum coffee mug!</p>
                         <div class="flex bg-white py-2 px-5 rounded-full">
-                            <input type="text" placeholder="Type here" class="input outline-none border-none input-bordered w-full max-w-xs" />
-                            <button class="btn rounded-full px-8 bg-btn-bg">Button</button>
+                            <input type="text" placeholder="Search here anything" class="input outline-none border-none input-bordered w-full max-w-xs" />
+                            <button class="btn rounded-full px-8 bg-btn-bg font-mulish">Button</button>
                         </div>
                    </div>
                    <div>
@@ -103,21 +105,21 @@
                           <tbody>
                             <!-- row 1 -->
                             <tr>
-                              <th>Registered Users</th>
-                              <td>01</td>
+                              <td class="text-[##12132DCC] font-mulish">Registered Users</td>
+                              <td class="text-[##12132DCC] font-mulish">01</td>
                             </tr>
                             <!-- row 2 -->
                             <tr>
-                              <th>Forum</th>
-                              <td>05</td>
+                              <td class="text-[##12132DCC] font-mulish">Forum</td>
+                              <td class="text-[##12132DCC] font-mulish">05</td>
                             </tr>
                             <tr>
-                              <th>Topics</th>
-                              <td>01</td>
+                              <td class="text-[##12132DCC] font-mulish">Topics</td>
+                              <td class="text-[##12132DCC] font-mulish">01</td>
                             </tr>
                             <tr>
-                              <th>Replies</th>
-                              <td>01</td>
+                              <td class="text-[##12132DCC] font-mulish">Replies</td>
+                              <td class="text-[##12132DCC] font-mulish">01</td>
                             </tr>
                           </tbody>
                         </table>
@@ -126,11 +128,85 @@
                 </div>
               </div>
              <!-- card area end -->
-          </section>  
-        
+          </section> 
     </header>
-    <main>
+    <main class="my-10">
+        <!-- Let’s Discuss start -->
+       
+        <section>
+            <div class="lg:w-2/4 space-y-3 mx-auto text-center">
+                <h1 class="text-3xl font-mulish font-black">Let’s Discuss</h1>
+                <p class="font-mulish">Yes, you can run unit tests and view the results directly within the app. The integrated testing features allow for a streamlined .</p>
+            </div>
+            <div class="grid my-8 grid-cols-1  gap-3 lg:grid-cols-8">
+                <div class="lg:col-span-5 ">
+                    <div class="hero hover:bg-[#797DFC1A]  bg-base-200">
+                        <div class="hero-content flex-col lg:flex-row">
+                            <div class="indicator">
+                                <span class="indicator-item badge bg-red-500"></span> 
+                                <img src="images/Frame (1).png" class="grid w-32 h-20 bg-base-300 place-items-center">
+                            </div>
+                          <div>
+                            <div>
+                                <div class="flex gap-8">
+                                    <h5 class="font-mulish">#Music</h5>
+                                    <h5 class="font-mulish">Author : Awlad Hossain</h5>
+                                </div>
+                                <h1 class="text-2xl font-mulish font-bold">Box Office News!</h1>
+                                <p class="py-6 font-mulish">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                                <div class="border-t-2 border-dashed border-gray-400 py-5 gap-5 grid grid-cols-1 lg:grid-cols-2">
+                                    <div class="flex justify-between">
+                                        <div class="flex gap-3 items-center">
+                                            <i class="fa-solid fa-message text-3xl"></i>
+                                            <p class="font-semibold  font-mulish">560</p>
+                                        </div>
+                                        <div class="flex gap-3 items-center">
+                                            <i class="fa-regular fa-eye text-3xl"></i>
+                                            <p class="font-semibold font-mulish">560</p>
+                                        </div>
+                                        <div class="flex gap-3 items-center">
+                                            <i class="fa-regular fa-clock text-3xl"></i>
+                                            <p class="font-semibold font-mulish">560</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-3 lg:justify-end items-center">
+                                        <button class="btn rounded-full text-white bg-[#10B981]">
+                                            <i class="fa-solid fa-envelope-open-text"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                <!--   Let’s Discuss right start  -->
+                <div class="lg:col-span-3">
+                    <table class="table bg-[#12132D0D]">
+                        <tbody>
+                          <!-- row 1 -->
+                          <tr>
+                            <th class="text-[##12132DCC] font-mulish">Title</th>
+                            <td class="text-[##12132DCC] font-mulish">
+                                <i class="fa-solid fa-check-double text-green-500 pr-2"></i>
+                                Mark as read (<span>4</span>)</td>
+                          </tr>
+                          <!-- row 2 -->
+                          <tr>
+                            <td class="text-[##12132DCC] font-mulish">Forum</td>
+                            <td class="text-[##12132DCC] font-mulish">05</td>
+                          </tr>
+                          
+                        </tbody>
+                      </table>
+                      <!--   Let’s Discuss right end  -->
+                </div>
+            </div>
 
+
+
+        </section>
+         <!-- Let’s Discuss end -->
     </main>
     <footer>
 
