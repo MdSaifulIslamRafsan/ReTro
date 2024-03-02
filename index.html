@@ -94,9 +94,9 @@
                     <div class="flex flex-col justify-center items-center space-y-4">
                         <h1 class="text-white text-3xl lg:text-5xl font-mulish font-black">Welcome to the <br> <span style="background: linear-gradient(90deg, #797DFC 0.63%, rgba(121, 125, 252, 0.363) 41%); background-clip: text; color: transparent;"> ReTro </span>Forum</h1>
                         <p class="text-white font-mulish">Share your favorite opinion and win and wp forum coffee mug!</p>
-                        <div class="flex bg-white py-2 px-5 rounded-full">
-                            <input type="text" placeholder="Search here anything" class="input outline-none border-none input-bordered w-full max-w-xs" />
-                            <button class="btn rounded-full px-8 bg-btn-bg font-mulish">Button</button>
+                        <div class="flex bg-white py-1 lg:py-2 px-2 lg:px-5 rounded-full">
+                            <input id="input-filed" type="text" placeholder="Search here anything" class="input outline-none border-none input-bordered focus:outline-none w-full text-[10px] lg:text-base max-w-xs" />
+                            <button id="search-btn" class="btn px-4 py-0 rounded-full lg:px-8 bg-btn-bg font-mulish text-white">Search</button>
                         </div>
                    </div>
                    <div>
@@ -145,19 +145,16 @@
                 <!--   Let’s Discuss right start  -->
                 <div class="lg:col-span-3 order-2">
                     <table class="table bg-[#12132D0D]">
-                        <tbody>
+                        <tbody id="table-container">
                           <!-- row 1 -->
                           <tr>
                             <th class="text-[##12132DCC] font-mulish">Title</th>
-                            <td class="text-[##12132DCC] font-mulish">
+                            <td class="text-[##12132DCC] font-mulish w-[43%]">
                                 <i class="fa-solid fa-check-double text-green-500 pr-2"></i>
-                                Mark as read (<span>4</span>)</td>
+                                Mark as read (<span id="total-read">0</span>)</td>
                           </tr>
                           <!-- row 2 -->
-                          <tr>
-                            <td class="text-[##12132DCC] font-mulish">Forum</td>
-                            <td class="text-[##12132DCC] font-mulish">05</td>
-                          </tr>
+                          
                           
                         </tbody>
                       </table>

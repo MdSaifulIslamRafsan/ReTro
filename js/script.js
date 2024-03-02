@@ -1,11 +1,17 @@
-const displayAPiData = async () => {
-    const response = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts');
+
+const displayAPiData = async (categoryId) => {
+    // api search
+    categoryId = ( categoryId) ? `posts?category=${categoryId}` :  categoryId = 'posts?';
+    console.log(categoryId);
+        
+    
+    const response = await fetch(`https://openapi.programming-hero.com/api/retro-forum/${categoryId}`);
     const data = await response.json();
 
     // dynamic card 
 
     const mainCardContainer = document.getElementById('main-card-container');
-    
+    mainCardContainer.innerHTML = '';
     data.posts.forEach(element => {
         const div =document.createElement('div');
         div.classList.add('mb-6');
@@ -13,7 +19,7 @@ const displayAPiData = async () => {
         <div class="hero hover:bg-[#797DFC1A] rounded-xl bg-base-200">
             <div class="hero-content flex-col lg:flex-row">
                 <div class="indicator">
-                    <span class="indicator-active indicator-item badge bg-red-500"></span> 
+                    <span id="indicator-active" class="indicator-item badge "></span> 
                     <img src="${element?.image}" class="grid w-20 h-20 bg-base-300 place-items-center">
                 </div>
               <div>
@@ -40,22 +46,50 @@ const displayAPiData = async () => {
                             </div>
                         </div>
                         <div class="flex gap-3 lg:justify-end items-center">
-                            <button class="btn rounded-full text-white bg-[#10B981]">
-                                <i class="fa-solid fa-envelope-open-text"></i>
-                            </button>
+                            <i class="flex items-center read-btn btn rounded-full text-white bg-[#10B981] fa-solid fa-envelope-open-text"></i>
                         </div>
                     </div>
                 </div>
               </div>
             </div>
           </div>`;
-          mainCardContainer.appendChild(div)
+          mainCardContainer.appendChild(div);
           
-       
-    });
-    
-    
-    
+        
+          
+          
+        });
+
+        // read button 
+        let count = 0;
+        const tableContainer = document.getElementById('table-container');
+         const readBtn = document.getElementsByClassName('read-btn');
+        for (const btn of readBtn) {
+            btn.addEventListener('click',(e) => {
+                count += 1;
+                const title = e.target.parentNode.parentNode.parentNode.children[1].innerText;
+                const views = e.target.parentNode.parentNode.children[0].children[1].children[1].innerText;
+                console.log();
+                
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                <td class="text-[##12132DCC] font-mulish">${title}</td>
+                <td class="text-[##12132DCC] font-mulish"><i class="fa-regular fa-eye text-xl"></i> ${views}</td>
+                `;
+                tableContainer.appendChild(tr);
+                const totalRead = document.getElementById('total-read');
+                totalRead.innerText = count;
+                
+
+            });
+        }
 
 }
 displayAPiData();
+
+// add search button
+document.getElementById('search-btn').addEventListener('click', () =>{
+    const textFiled = document.getElementById('input-filed').value;
+    displayAPiData(textFiled);
+})
