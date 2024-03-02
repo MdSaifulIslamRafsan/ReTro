@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-06</title>
+    <!-- favicon link -->
+    <link rel="shortcut icon" href="images/download (1).jpg" type="image/x-icon">
+    <!-- link daisy ui -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- link google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                'btn-bg':'#797DFC',
+              }
+            }
+          }
+        }
+      </script>
+        
+      <style>
+        .font-mulish{
+            font-family: "Mulish", sans-serif;
+            font-style: normal;
+        }
+      </style>
+
+</head>
+<body class="max-w-[1440px] lg:w-10/12 mx-auto">
+    <header>
+        <!-- navbar start -->
+        <nav class="mt-5">
+            <div class="navbar bg-base-100">
+                <div class="navbar-start">
+                  <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                    </div>
+                    <ul tabindex="0" class="flex flex-row gap-2 menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-80">
+                        <div class="tooltip" data-tip="Home">
+                            <button class="btn rounded-full w-14 h-14"><img src="images/Frame (1).png" alt=""></button>
+                        </div>
+                        <div class="tooltip" data-tip="Edit">
+                            <button class="btn rounded-full w-14 h-14"><img src="images/Frame (2).png" alt=""></button>
+                        </div>
+                        <div class="tooltip" data-tip="Add">
+                            <button class="btn rounded-full w-14 h-14"><img src="images/Frame (3).png" alt=""></button>
+                        </div>
+                        <div class="tooltip" data-tip="Flag">
+                            <button class="btn rounded-full w-14 h-14"><img src="images/Frame (4).png" alt=""></button>
+                        </div>
+
+                    </ul>
+                  </div>
+                  <a class="text-4xl font-black font-mulish">ReTro</a>
+                </div>
+                <div class="navbar-end hidden lg:flex">
+                  <ul class="menu menu-horizontal px-1 space-x-5">
+                    <div class="tooltip" data-tip="Home">
+                        <button class="btn rounded-full w-12  h-12 p-2"><img src="images/Frame (1).png" alt=""></button>
+                    </div>
+                    <div class="tooltip" data-tip="Edit">
+                        <button class="btn rounded-full w-12  h-12 p-2"><img src="images/Frame (2).png" alt=""></button>
+                    </div>
+                    <div class="tooltip" data-tip="Add">
+                        <button class="btn rounded-full w-12  h-12 p-2"><img src="images/Frame (3).png" alt=""></button>
+                    </div>
+                    <div class="tooltip" data-tip="Flag">
+                        <button class="btn rounded-full w-12  h-12 p-2"><img src="images/Frame (4).png" alt=""></button>
+                    </div>
+                  </ul>
+                </div>
+                <div class="navbar-end lg:w-1/6">
+                  <a class="btn rounded-full bg-btn-bg px-8 font-mulish text-white">Sign In</a>
+                </div>
+              </div>
+        </nav>
+             <!-- navbar end -->
+
+             
+        
+    </header>
+    <main>
+
+    </main>
+    <footer>
+
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
