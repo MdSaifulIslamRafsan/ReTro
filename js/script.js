@@ -13,13 +13,23 @@ const displayAPiData = async (categoryId) => {
     const mainCardContainer = document.getElementById('main-card-container');
     mainCardContainer.innerHTML = '';
     data.posts.forEach(element => {
+        // show dynamic active status
+        function activeStatus(){
+            let active = ``;
+            if(element.isActive){
+                active = `<span  class="indicator-item badge bg-green-500"></span>` 
+            }else{
+                active =`<span  class="indicator-item badge bg-red-500"></span>`
+            }
+            return active;
+        }
         const div =document.createElement('div');
         div.classList.add('mb-6');
         div.innerHTML =`
         <div class="hero hover:bg-[#797DFC1A] rounded-xl bg-base-200">
             <div class="hero-content flex-col lg:flex-row">
                 <div class="indicator">
-                    <span id="indicator-active" class="indicator-item badge "></span> 
+                    ${activeStatus()}
                     <img src="${element?.image}" class="grid w-20 h-20 bg-base-300 place-items-center">
                 </div>
               <div>
@@ -55,7 +65,8 @@ const displayAPiData = async (categoryId) => {
           </div>`;
           mainCardContainer.appendChild(div);
           
-        
+            
+                
           
           
         });
@@ -84,6 +95,8 @@ const displayAPiData = async (categoryId) => {
 
             });
         }
+
+        
 
 }
 displayAPiData();
