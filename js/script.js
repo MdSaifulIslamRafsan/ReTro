@@ -33,10 +33,10 @@ const displayAPiData = async (categoryId) => {
         div.classList.add('mb-6');
         div.innerHTML =`
         <div class="hero hover:bg-[#797DFC1A] rounded-xl bg-base-200">
-            <div class="hero-content flex-col lg:flex-row">
+            <div class="hero-content items-start flex-col lg:flex-row">
                 <div class="indicator">
                     ${activeStatus()}
-                    <img src="${element?.image}" class="grid w-20 h-20 bg-base-300 place-items-center">
+                    <img src="${element?.image}" class="grid w-20 h-16 bg-base-300 place-items-center">
                 </div>
               <div>
                 <div>
@@ -44,7 +44,7 @@ const displayAPiData = async (categoryId) => {
                         <h5 class="font-mulish">#${element?.category}</h5>
                         <h5 class="font-mulish">Author : ${element?.author?.name}</h5>
                     </div>
-                    <h1 class="text-2xl font-mulish font-bold">${element?.title}</h1>
+                    <h1 class="text-lg font-mulish font-bold">${element?.title}</h1>
                     <p class="py-6 font-mulish">${element?.description}</p>
                     <div class="border-t-2 border-dashed border-gray-400 py-5 gap-5 grid grid-cols-1 lg:grid-cols-2">
                         <div class="flex gap-6 justify-between">
