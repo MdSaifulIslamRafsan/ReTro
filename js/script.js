@@ -1,5 +1,7 @@
 
 const displayAPiData = async (categoryId) => {
+
+    document.getElementById('load-bars').classList.remove('hidden');
     // api search
     categoryId = ( categoryId) ? `posts?category=${categoryId}` :  categoryId = 'posts?';
     console.log(categoryId);
@@ -7,11 +9,14 @@ const displayAPiData = async (categoryId) => {
     
     const response = await fetch(`https://openapi.programming-hero.com/api/retro-forum/${categoryId}`);
     const data = await response.json();
+    if (data.posts.length === 0) {
+        alert('No data found')
+    }
 
     // dynamic card 
-
     const mainCardContainer = document.getElementById('main-card-container');
     mainCardContainer.innerHTML = '';
+
     data.posts.forEach(element => {
         // show dynamic active status
         function activeStatus(){
@@ -23,6 +28,8 @@ const displayAPiData = async (categoryId) => {
             }
             return active;
         }
+
+        // create dynamic card 
         const div =document.createElement('div');
         div.classList.add('mb-6');
         div.innerHTML =`
@@ -96,7 +103,7 @@ const displayAPiData = async (categoryId) => {
             });
         }
 
-        
+        document.getElementById('load-bars').classList.add('hidden');
 
 }
 displayAPiData();
