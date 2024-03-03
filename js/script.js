@@ -4,7 +4,6 @@ const displayAPiData = async (categoryId) => {
     document.getElementById('load-bars').classList.remove('hidden');
     // api search
     categoryId = ( categoryId) ? `posts?category=${categoryId}` :  categoryId = 'posts?';
-    console.log(categoryId);
         
     
     const response = await fetch(`https://openapi.programming-hero.com/api/retro-forum/${categoryId}`);
@@ -63,7 +62,7 @@ const displayAPiData = async (categoryId) => {
                             </div>
                         </div>
                         <div class="flex gap-3 lg:justify-end items-center">
-                            <i class="flex items-center read-btn btn rounded-full text-white bg-[#10B981] fa-solid fa-envelope-open-text"></i>
+                            <i onclick="showTitle('${element.title.replace('\'','')}', '${element.view_count}')" class="flex items-center read-btn btn rounded-full text-white bg-[#10B981] fa-solid fa-envelope-open-text"></i>
                         </div>
                     </div>
                 </div>
@@ -72,39 +71,13 @@ const displayAPiData = async (categoryId) => {
           </div>`;
           mainCardContainer.appendChild(div);
           
-            
+         
+
+        document.getElementById('load-bars').classList.add('hidden');
                 
           
           
         });
-
-        // read button 
-        let count = 0;
-        const tableContainer = document.getElementById('table-container');
-         const readBtn = document.getElementsByClassName('read-btn');
-        for (const btn of readBtn) {
-            btn.addEventListener('click',(e) => {
-                count += 1;
-                const title = e.target.parentNode.parentNode.parentNode.children[1].innerText;
-                const views = e.target.parentNode.parentNode.children[0].children[1].children[1].innerText;
-                console.log();
-                
-
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                <td class="text-[##12132DCC] font-mulish">${title}</td>
-                <td class="text-[##12132DCC] font-mulish"><i class="fa-regular fa-eye text-xl"></i> ${views}</td>
-                `;
-                tableContainer.appendChild(tr);
-                const totalRead = document.getElementById('total-read');
-                totalRead.innerText = count;
-                
-
-            });
-        }
-
-        document.getElementById('load-bars').classList.add('hidden');
-
 }
 displayAPiData();
 
@@ -112,4 +85,52 @@ displayAPiData();
 document.getElementById('search-btn').addEventListener('click', () =>{
     const textFiled = document.getElementById('input-filed').value;
     displayAPiData(textFiled);
-})
+});
+
+// display read data 
+let count = 0;
+const tableContainer = document.getElementById('table-container');
+function showTitle(getTitle , getViews){
+    count += 1;
+    console.log(getTitle , getViews);
+    const tr = document.createElement('tr');
+        tr.innerHTML = `
+        <td class="text-[##12132DCC] font-mulish">${getTitle}</td>
+        <td class="text-[##12132DCC] font-mulish"><i class="fa-regular fa-eye text-xl"></i> ${getViews}</td>
+        `;
+        tableContainer.appendChild(tr);
+        const totalRead = document.getElementById('total-read');
+        totalRead.innerText = count;
+}
+
+
+// latest post 
+
+const latestPost = async () => {
+    const response = await fetch(' https://openapi.programming-hero.com/api/retro-forum/latest-posts');
+    const data = await response.json();
+    const cardContainer = document.getElementById('card-container');
+    data.forEach((element)=>{
+        const div = document.createElement('div');
+        div.classList = `card bg-base-100 shadow-xl p-2`;
+        div.innerHTML = `
+                  <figure><img src="${element.cover_image}" alt="" /></figure>
+                  <div class="card-body mt-2 p-0">
+                    <p class="flex font-mulish gap-2"><img  class="w-6 h-6" src="images/Frame (7).png" alt=""> ${element?.author?.posted_date || 'No publish date'}</p>
+                    <h2 class="card-title font-mulish text-sm">${element.title}</h2>
+                    <p class="text-sm">${element.description}</p>
+                    <div class="flex gap-2">
+                        <div class="">
+                          <img class="w-10 h-10 rounded-full" src="${element.profile_image}" alt="">
+                        </div>
+                        <div>
+                            <h6 class="text-sm font-semibold">${element?.author?.name}</h6>
+                            <p class="text-sm">${element?.author?.designation || 'Unknown'}</</p>
+                        </div>
+                    </div>
+                  </div>
+        `;
+        cardContainer.appendChild(div);
+    })
+}
+latestPost();
