@@ -3,14 +3,14 @@ const displayAPiData = async (categoryId) => {
 
     document.getElementById('load-bars').classList.remove('hidden');
     // api search
-    categoryId = ( categoryId) ? `posts?category=${categoryId}` :  categoryId = 'posts?';
-        
-    
-    const response = await fetch(`https://openapi.programming-hero.com/api/retro-forum/${categoryId}`);
+   
+    const response = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${categoryId}`);
     const data = await response.json();
     if (data.posts.length === 0) {
         alert('No data found')
     }
+
+   
 
     // dynamic card 
     const mainCardContainer = document.getElementById('main-card-container');
@@ -71,20 +71,18 @@ const displayAPiData = async (categoryId) => {
           </div>`;
           mainCardContainer.appendChild(div);
           
-         
-
         document.getElementById('load-bars').classList.add('hidden');
-                
-          
-          
+                     
         });
+        
 }
-displayAPiData();
+displayAPiData('');
 
 // add search button
 document.getElementById('search-btn').addEventListener('click', () =>{
     const textFiled = document.getElementById('input-filed').value;
     displayAPiData(textFiled);
+    
 });
 
 // display read data 
